@@ -1,0 +1,35 @@
+from bs4 import BeautifulSoup
+import requests
+import csv
+
+url='https://www.bostonmagazine.com/best-school-districts-boston-2017-chart/'
+
+html_content=requests.get(url).text
+
+soup=BeautifulSoup(html_content, 'lxml')
+
+school_table=soup.find("table", attrs={'class':'tablepress tablepress-id-137'})
+
+#find headings
+headings=[]
+
+for th in school_table.find('thead').find('tr').find_all('th'):
+    headings.append(th.text.replace('\n', ' ').strip())
+    
+from bs4 import BeautifulSoup
+import requests
+import csv
+
+url='https://www.bostonmagazine.com/best-school-districts-boston-2017-chart/'
+
+html_content=requests.get(url).text
+
+soup=BeautifulSoup(html_content, 'lxml')
+
+school_table=soup.find("table", attrs={'class':'tablepress tablepress-id-137'})
+
+#find headings
+headings=[]
+
+for th in school_table.find('thead').find('tr').find_all('th'):
+    headings.append(th.text.replace('\n', ' ').strip())
